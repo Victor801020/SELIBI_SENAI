@@ -1,0 +1,284 @@
+:root {
+  --bg-color-main: #000000;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #000000;
+  color: #1e293b;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+/* Fundo completamente escuro antes do botão */
+.bg-timeline-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: filter 0.8s ease-in-out, background-image 0.8s ease-in-out;
+  filter: brightness(0) contrast(1);
+  z-index: 0;
+}
+
+/* Esconde elementos antes de acender */
+.header-content,
+.footer-content,
+.card-inner-text,
+.btn-video-link,
+.typewriter-paper-container,
+.whatsapp-calls-container,
+.google-search-container,
+.smartphone-frame,
+.nubank-container,
+.ai-symbols-container {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.carousel-card {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
+}
+
+/* QUANDO A LUZ É ACESA PELO BOTÃO */
+body.lamp-on .bg-timeline-image {
+  filter: brightness(1) contrast(1.05);
+}
+
+body.lamp-on .header-content,
+body.lamp-on .footer-content,
+body.lamp-on .card-inner-text,
+body.lamp-on .btn-video-link,
+body.lamp-on .typewriter-paper-container,
+body.lamp-on .whatsapp-calls-container,
+body.lamp-on .google-search-container,
+body.lamp-on .smartphone-frame,
+body.lamp-on .nubank-container,
+body.lamp-on .ai-symbols-container {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body.lamp-on .carousel-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8) !important;
+}
+
+body.lamp-on .carousel-card.wood-theme-card {
+  background: linear-gradient(135deg, #2b1b10 0%, #422a18 50%, #1a100a 100%) !important;
+  border: 2px solid #8b5a2b !important;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.8), 0 20px 40px rgba(0,0,0,0.9) !important;
+}
+
+body.lamp-on .carousel-card.active-card {
+  border-color: #000000 !important;
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.9) !important;
+}
+
+.bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.scene-3d {
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+}
+
+/* PALCO DO CARROSSEL */
+.carousel-stage {
+  position: relative;
+  width: 100%;
+  height: 390px;
+  transform-style: preserve-3d;
+}
+
+/* DIMENSÃO E ESTRUTURA DOS CARDS */
+.carousel-card {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 280px;
+  height: 370px;
+  margin-left: -140px;
+  border-radius: 12px !important;
+  padding: 18px 16px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* TRANSIÇÃO RÁPIDA DE SUMIÇO DOS BLOCOS LATERAIS */
+.carousel-card.hide-side-card {
+  opacity: 0 !important;
+  pointer-events: none;
+  transition: opacity 0.25s ease-out !important;
+}
+
+.wood-theme-card {
+  color: #f3e5ab !important;
+}
+
+/* MÁQUINA DE ESCREVER (BLOCO 2) */
+.typewriter-paper-container {
+  width: 100%;
+}
+
+.typewriter-paper {
+  background: #fbf7ee;
+  border: 1px solid #dcd3be;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.08), 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.typewriter-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  font-family: 'Courier Prime', monospace !important;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #1a1a1a;
+  letter-spacing: 0.5px;
+}
+
+.typewriter-input::placeholder {
+  color: #a09580;
+  font-style: italic;
+}
+
+/* BOTÃO VINTAGE CINZA */
+.btn-vintage-switch {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #5a5d64, #32353a);
+  border: 3px solid #8b5a2b;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  z-index: 30;
+  pointer-events: auto !important;
+}
+
+.btn-vintage-switch:hover {
+  background: linear-gradient(145deg, #686c74, #3e4147);
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.6);
+}
+
+body.lamp-on .btn-vintage-switch {
+  background: linear-gradient(145deg, #282a2d, #121315);
+  border-color: #1a1b1e;
+  color: #f59e0b;
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.btn-wa-call:active {
+  transform: scale(0.95);
+}
+
+.google-search-container {
+  width: 100%;
+}
+
+/* SMARTPHONE (BLOCO 5) */
+.smartphone-card {
+  background: #09090b !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  padding: 10px !important;
+}
+
+.smartphone-frame {
+  height: 290px;
+}
+
+.nubank-container {
+  width: 100%;
+}
+
+.ai-symbols-container {
+  width: 100%;
+}
+
+/* BOTÃO DE LINK DE VÍDEO */
+.btn-video-link {
+  width: 100%;
+  padding: 11px 14px;
+  background: #18181b;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-video-link:hover {
+  background: #27272a;
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.wood-theme-card .btn-video-link {
+  background: #1a100a;
+  border-color: #8b5a2b;
+  color: #f3e5ab;
+}
+
+.wood-theme-card .btn-video-link:hover {
+  background: #2b1b10;
+}
+
+/* RESPONSIVIDADE PARA SMARTPHONES (MENOR QUE 640px) */
+@media (max-width: 640px) {
+  .carousel-card {
+    width: 230px;
+    height: 330px;
+    margin-left: -115px;
+    padding: 12px;
+  }
+  .carousel-stage {
+    height: 340px;
+  }
+  .smartphone-frame {
+    height: 250px;
+  }
+  .btn-vintage-switch {
+    width: 60px;
+    height: 60px;
+  }
+}
